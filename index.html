@@ -3,299 +3,112 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
-    <link rel="icon" href="./favicon.ico">
-    <title>恋爱日记 </title>
-
-    <meta name="keywords" content="DJ - LXQ">
-    <link rel="stylesheet" type="text/css" href="./css/lovexhj.css">
-    <link rel="stylesheet" href="./css/swiper.css">
-    <link rel="stylesheet" type="text/css" href="./css/FiraCode.css">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>电商网站</title>
     <style>
-        #video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .product-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 20px;
+        }
+
+        .product {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+
+        .product img {
             width: 100%;
-            /* height: 100%; */
-            z-index: -1;
+            height: auto;
+        }
+
+        .product-name {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .product-price {
+            color: #ff0000;
+        }
+
+        .category-container {
             display: flex;
             justify-content: center;
-            align-items: center;
+            margin-top: 20px;
+        }
+
+        .category {
+            margin: 0 10px;
+            cursor: pointer;
+            color: #333;
+        }
+
+        .category.active {
+            color: #ff0000;
         }
     </style>
-
 </head>
 
 <body>
-    <!-- 标题板块 -->
-    <div class="title">
-        <!-- <img src="./images/bg1.gif" alt="bgGif"> -->
-        <p id="tqyxhj"></p>
+    <h1>电商网站</h1>
+
+    <div class="category-container">
+        <div class="category active" onclick="filterProducts('all')">全部</div>
+        <div class="category" onclick="filterProducts('电子产品')">电子产品</div>
+        <div class="category" onclick="filterProducts('家居用品')">家居用品</div>
+        <div class="category" onclick="filterProducts('服装')">服装</div>
     </div>
 
-    <div id="video-container"></div>
+    <div class="product-container">
+        <div class="product" data-category="电子产品">
+            <img src="https://example.com/product1.jpg" alt="Product 1">
+            <h3 class="product-name">产品1</h3>
+            <p class="product-price">$100</p>
+        </div>
+        <div class="product" data-category="家居用品">
+            <img src="https://example.com/product2.jpg" alt="Product 2">
+            <h3 class="product-name">产品2</h3>
+            <p class="product-price">$50</p>
+        </div>
+        <div class="product" data-category="服装">
+            <img src="https://example.com/product3.jpg" alt="Product 3">
+            <h3 class="product-name">产品3</h3>
+            <p class="product-price">$80</p>
+        </div>
+        <!-- 添加更多产品 -->
+    </div>
 
     <script>
-        var videoSrc = "video1.mp4";
-        var videoContainer = document.getElementById("video-container");
-        var videoElement = document.createElement("video");
-        videoElement.src = videoSrc;
-        videoElement.autoplay = true;
-        videoElement.loop = true;
-        videoElement.muted = true;
-        videoContainer.appendChild(videoElement);
-    </script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product');
 
-
-    <!-- 分页1 - -->
-    <div class="page page1">
-        <div class="swiper-container swiper-container-lovexhj1">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="page1-lovexhj1">
-                        <img src="https://q1.qlogo.cn/g?b=qq&nk=1486901722&s=640" alt="xhj">
-                        <img src="./images/cat.gif" alt="cat">
-                        <img src="https://q1.qlogo.cn/g?b=qq&nk=1379650463&s=640" alt="tqy">
-                        <p id="lovetime"></p>
-
-                        <span class="right">往右划动 →</span>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page1-lovexhj1">
-                        <img class="cat" src="./images/cat2.gif" alt="cat2">
-                        <!-- <p class="catText">你常对我发的表情 ↑</p> -->
-                        <p>生活酸甜苦辣，爱亦如此</p>
-                        <p>两个人在一起可以成为更好的彼此</p>
-
-                        <!-- <span class="right">再划一下 →</span> -->
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page1-lovexhj1">
-                        <img class="cat" src="./images/cat3.gif" alt="cat3">
-                        <p>这世界有那么多人</p>
-                        <p>多幸运，我有个我们</p>
-
-                        <!-- <span class="right">再划一次吧 →</span> -->
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page1-lovexhj1">
-                        <img class="cat" src="./images/cat4.gif" alt="cat4">
-                        <!-- <p class="catText">拍你猪头 ↑</p> -->
-                        <p>有你的日子，就是我要过得日子</p>
-                        <p>万事胜意</p>
-                        <b>爱你哟(๑′ᴗ‵๑)我的<span style="color: pink;">猪</span></b>
-                    </div>
-                </div>
-            </div>
-            <div class="swiper-pagination swiper-pagination-lovexhj1"></div>
-        </div>
-    </div>
-
-    <!-- 分页2 - 时间轴 -->
-    <div class="page page2">
-        <div class="swiper-container swiper-container-lovexhj2">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-1.jpg" alt="page2-1">
-                        <p><b>故事的开始</b></p>
-                        <p>2021-04-18</p>
-                        <p>我们的故事，从此开始</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-2.jpg" alt="page2-2">
-                        <p><b>第一次去旅游</b></p>
-                        <p>那个夏天想必是不能忘却的一段时光吧</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-3.jpg" alt="page2-3">
-                        <p><b>一起堆雪人</b></p>
-                        <p>手冻僵了，还是很开心，那是第一次去的你家</p>
-
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-4.jpg" alt="page2-4">
-                        <p><b>第一次收到这么多星星❤</b></p>
-                        <p>“要是能早点结婚就好了，就不用这么麻烦了”</p>
-                        <p>差点没车回去</p>
-
-                    </div>
-                </div>
-
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-6.jpg" alt="page2-6">
-                        <p><b>第一次和我一起过生日</b></p>
-                        <p>带你见我的朋友们</p>
-                        <p>是我过得最开心的一个生日</p>
-                    </div>
-                </div>
-                <!-- <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-7.jpg" alt="page2-7">
-                        <p><b>第一次与你看电影</b></p>
-                        <p>这应该算是第一次认真的看完了一部电影吧哈哈</p>
-                    </div>
-                </div> -->
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-5.jpg" alt="page2-5">
-                        <p><b>蛋仔打卡</b></p>
-                        <p>乐此不疲的去各种地图打卡，“搞快点，搞快点！”</p>
-
-                    </div>
-                </div>
-                <!-- <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-8.jpg" alt="page2-8">
-                        <p><b>第一次在深夜跑出来陪你</b></p>
-                        <p>偶然条件下，凌晨三点我们在一起散步</p>
-                        <p>安静的马路上充满了甜甜的感觉</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-9.jpg" alt="page2-9">
-                        <p><b>第一次与你打游戏</b></p>
-                        <p>看你输了“赛车”时生气的样子好好笑</p>
-                        <p>并偷偷在后面摸了一下你的猪头</p>
-                    </div>
-                </div>
-                <div class="swiper-slide">
-                    <div class="page2-box">
-                        <img src="./images/page-2-10.jpg" alt="page2-10">
-                        <p><b>More？</b></p>
-                        <p>篇幅有限，</p>
-                        <p>丢一张丑照吧hahahahahah</p>
-                    </div>
-                </div> -->
-            </div>
-            <div class="swiper-pagination swiper-pagination-lovexhj2"></div>
-        </div>
-    </div>
-
-    <!-- 分页3 - 一段话 -->
-    <div class="page page3">
-        <div id="talkToXHJ">
-            <b>臭宝呐~</b>
-            <br />
-            这一生会遇到很多心动的人，可能只是一时的好感，真正的喜欢是心定。要分清是寂寞了需要个人陪还是遇见了那个人你喜欢想要和他在一起。前者是消遣，后者才是恋爱。在我下定决心喜欢你的时候，就在想，如果以后能和这样的女孩子一起度过，那也是挺开心的，看到过一句话，想分享给你，爱是和旧人一起体验新事物，而不是不断地和新人体会旧感情，哪有什么一眼望到头的人生啊，只是想的太狭隘了，谁会有确定的未来，我都不知道以后会干什么工作，会经历什么样的事，会认识什么样的人，去什么样的地方，感受不一样的风景，但不管未来会怎样，我都把你考虑进我的未来里了，就像，你就是我梦想中的一部分。
-
-            <br />
-            <br />
-            <b>这是我们的第三年</b>
-            <br />
-            以后还有更多更多的故事来记载，我还记得我们的第一次相遇，彼时不知道我们会走到今天的甜蜜，我们相互吸引、彼此倾心。从那刻起，我知道我们注定要走在一起，分享彼此的喜怒哀乐，见证彼此的成长。
-            <br />
-            ## 爱你的宝 (๑′ᴗ‵๑)~ ❤
-        </div>
-    </div>
-
-    <!-- 分页4 - 结尾 -->
-    <div class="page page4">
-        <div class="page4-box">
-            <div class="page4-img">
-                <div class="swiper-container swiper-container-lovexhj3">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-1.png" alt="page-4-1">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-2.jpg" alt="page-4-2">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-3.jpg" alt="page-4-3">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-4.jpg" alt="page-4-4">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-5.jpg" alt="page-4-5">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-6.jpg" alt="page-4-6">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-7.jpg" alt="page-4-7">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-8.jpg" alt="page-4-8">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-9.jpg" alt="page-4-9">
-                        </div>
-                        <div class="swiper-slide">
-                            <img src="./images/page-4-10.jpg" alt="page-4-10">
-                        </div>
-                    </div>
-                    <div class="swiper-button-prev swiper-button-prev-lovexhj3"></div>
-                    <div class="swiper-button-next swiper-button-next-lovexhj3"></div>
-                </div>
-            </div>
-            <div class="page4-text">
-                <h1>Send To Future</h1>
-                <p>碎碎念念的生活，就是我想要的生活。</p>
-            </div>
-        </div>
-
-        <div class="footer">
-            <div class="footerBox">
-                <p>
-                    &copy; 2021
-                    <a href="">DJ && LXQ</a> |
-                    <!-- <a href="http://beian.miit.gov.cn">陇ICP备18015792号-2</a> -->
-                </p>
-            </div>
-        </div>
-    </div>
-
-    <!-- 两只lxq一样的猪 -->
-    <div class="xhjIsPig">
-        <img src="./images/pig1.gif" alt="pig1" class="pig1">
-        <img src="./images/pig2.gif" alt="pig2" class="pig2">
-    </div>
-
-    <!-- js加载 -->
-    <script src="https://cdn.bootcss.com/wow/1.1.2/wow.js"></script>
-    <script src="./js/typeit.min.js"></script>
-    <script src="./js/swiper-3.4.2.min.js"></script>
-    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.0/jquery.js"></script>
-
-    <script src="./js/lovetime.js"></script>
-    <script src="./js/talk.js"></script>
-    <script src="./js/swiper.js"></script>
-    <script src="./js/su.js"></script>
-    <script>
-        (function () {
-            new WOW().init()
-        })()
-    </script>
-
-    <script type="text/javascript">
-        jQuery(document).ready(function ($) {
-            $('body').wpSuperSnow({
-                flakes: ['./images/004.png', './images/003.png', './images/002.png',
-                    './images/001.png'
-                ],
-                totalFlakes: '100',
-                zIndex: '999999',
-                maxSize: '30',
-                maxDuration: '20',
-                useFlakeTrans: false
+            products.forEach(product => {
+                if (category === 'all' || product.dataset.category === category) {
+                    product.style.display = 'block';
+                } else {
+                    product.style.display = 'none';
+                }
             });
-        });
+
+            const categories = document.querySelectorAll('.category');
+            categories.forEach(categoryElement => {
+                if (categoryElement.textContent === category) {
+                    categoryElement.classList.add('active');
+                } else {
+                    categoryElement.classList.remove('active');
+                }
+            });
+        }
     </script>
 </body>
 
