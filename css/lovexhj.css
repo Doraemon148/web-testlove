@@ -5,14 +5,23 @@
 
 .title img {
     display: block;
-    filter: blur(5px);
+    height: 100vh;
     width: 100%;
-    height: 100%;
-    object-fit: fill;
+    object-fit: cover; /* 裁剪并填充 */
+    object-position: center top; /* 居中顶部对齐 */
     position: fixed;
     top: 0;
     left: 0;
     z-index: -1;
+    animation: loopAnimation 8s infinite;
+}
+@keyframes loopAnimation {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 100% 100%;
+    }
 }
 
 a {
