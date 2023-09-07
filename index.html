@@ -16,22 +16,43 @@
 
 
     <style>
+       video {
+            pointer-events: none; /* 禁止用户交互 */
+        }
+
+        video::-webkit-media-controls-panel,
+        video::-webkit-media-controls-play-button,
+        video::-webkit-media-controls-start-playback-button,
+        video::-webkit-media-controls-download-button {
+            display: none !important; /* 隐藏控件和下载按钮 */
+        }
         #title {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
+            display: flex;
+            position:center;
             /* height: 100%; */
             z-index: -1;
+          
+          #title video {
+            max-width: 100%;
+            max-height: 100%;
         }
+
     </style>
 </head>
 
 <body>
     <!-- 标题板块 -->
     <div class="title">
-        <a href='https://postimages.org/' target='_blank'><img src='https://dorae.oss-cn-beijing.aliyuncs.com/bg.gif?Expires=1691760782&OSSAccessKeyId=TMP.3Kgzqnnj4hL6bQMnDAPh8dwQ2dHGoJpmDRgKFgiDoBhSFYpY2kJsTMtVbcEJSTmN37jcToUMqZg5m7JjKw9TZiNfpnJ2H2&Signature=SqPSyooId6Wm3d7NOftW%2BIlkc28%3D'/></a>
-    </div>
+    <video autoplay loop controlsList="nodownload" muted>
+        <source src="./video1.mp4" type="video/mp4">
+        <!-- 添加其他视频格式的<source>标签 -->
+    </video>
+</div>
+
 
 
     <!-- 分页1 - -->
